@@ -1,1 +1,14 @@
-[{"message":"Sheesh!","user":"Daze"},{"message":"YOLO!","user":"Drake"},{"message":"It's Lit!","user":"Travis $cott"}]
+[
+    {
+        "message": "Sheesh!",
+        "user": "Daze"
+    },
+    {
+        "message": "YOLO!",
+        "user": "Drake"
+    },
+    {
+        "message": "It's Lit!",
+        "user": "Travis $cott"
+    }
+]

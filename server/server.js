@@ -1,7 +1,27 @@
-// var path = require('path');
-// var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
+const request = require('request');
 
-// var dataPath = path.join(__dirname, '../data.json');
+let dataPath = path.join(__dirname, '../data.json');
+
+request('https://reddit.com/r/popular.json', (err, res, body) => {
+
+    if(err) console.error(err);
+    // console.log(res);
+
+    JSON.parse(body).data.children.forEach(item => {
+        // console.log(item.data.title);
+        fs.appendFileSync(dataPath, item.data.title + '\n');
+    });
+
+    // fs.writeFile(dataPath, res.body, err => {
+    //     if(err) console.error(err);
+    // });
+
+
+});
+
+
 
 // fs.readFile(dataPath,{
 //     encoding: "UTF-8"
@@ -17,25 +37,25 @@
 
 /*NodeJS Project*/
 
-const path = require('path');
-const fs = require('fs');
+// const path = require('path');
+// const fs = require('fs');
 
-const chirpArr = [
-    {
-        message: "Sheesh!",
-        user: "Daze"
-    },
-    {
-        message: "YOLO!",
-        user: "Drake"
-    },
-    {
-        message: "It's Lit!",
-        user: "Travis $cott"
-    }
-];
+// const chirpArr = [
+//     {
+//         message: "Sheesh!",
+//         user: "Daze"
+//     },
+//     {
+//         message: "YOLO!",
+//         user: "Drake"
+//     },
+//     {
+//         message: "It's Lit!",
+//         user: "Travis $cott"
+//     }
+// ];
 
-fs.writeFile('chirps.json', JSON.stringify(chirpArr), function (err) {
-    if (err) throw (err);
-    console.log('Saved!')
-});
+// fs.writeFile('chirps.json', JSON.stringify(chirpArr), function (err) {
+//     if (err) throw (err);
+//     console.log('Saved!')
+// });
